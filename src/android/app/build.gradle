@@ -22,20 +22,14 @@ android {
         versionName "${getVersion()}"
     }
 
-          // Define build types, which are orthogonal to product flavors.
     buildTypes {
-        // Signed by release key, allowing for upload to Play Store.
         release {
-            signingConfig signingConfigs.release
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
-        // Signed by debug key disallowing distribution on Play Store.
-        // Attaches 'debug' suffix to version and package name, allowing installation alongside the release build.
         debug {
-            // TODO If this is ever modified, change application_id in debug/strings.xml
             applicationIdSuffix ".debug"
             versionNameSuffix '-debug'
             jniDebuggable true
